@@ -31,7 +31,7 @@ class Repository<T extends Storable> {
   }
 }
 
-interface User {
+interface User1 {
   id: number
   name: string
 }
@@ -42,7 +42,7 @@ interface Product {
   price: number
 }
 
-const userRepository = new Repository<User>()
+const userRepository = new Repository<User1>()
 const productRepository = new Repository<Product>()
 
 userRepository.add({ id: 1, name: 'Kseniia' })
