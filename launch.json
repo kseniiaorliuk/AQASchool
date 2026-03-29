@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug hw6",
+      "cwd": "${workspaceFolder}/hw6",
+      "program": "${workspaceFolder}/hw6/hw6.ts",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["ts-node", "--files"],
+      "outFiles": ["${workspaceFolder}/hw6/**/*.js"]
+    }
+  ]
+}
