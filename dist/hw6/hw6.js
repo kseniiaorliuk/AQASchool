@@ -11,32 +11,29 @@
 // Product with properties: id (string), title (string), price (number).
 // Instantiate two separate repositories: userRepository for User objects and productRepository for Product objects.
 // Add items to both repositories and use the findAll and findById methods. Log the results to the console to verify that both repositories work correctly and maintain full type safety.
-var Repository = /** @class */ (function () {
-  function Repository() {
-    this.items = []
-  }
-  Repository.prototype.add = function (item) {
-    this.items.push(item)
-  }
-  Repository.prototype.findAll = function () {
-    return this.items
-  }
-  Repository.prototype.findById = function (id) {
-    return this.items.find(function (item) {
-      return item.id === id
-    })
-  }
-  return Repository
-})()
-var userRepository = new Repository()
-var productRepository = new Repository()
-userRepository.add({ id: 1, name: 'Kseniia' })
-productRepository.add({ id: '1', title: 'Phone', price: 1000 })
-console.log('Find all users')
-console.log('All users', userRepository.findAll())
-console.log('Find user by ID')
-console.log('User with id 1:', userRepository.findById(1))
-console.log('Find all products')
-console.log('All products:', productRepository.findAll())
-console.log('Find product by ID')
-console.log('This is product with 1 ID', productRepository.findById('1'))
+class Repository {
+    constructor() {
+        this.items = [];
+    }
+    add(item) {
+        this.items.push(item);
+    }
+    findAll() {
+        return this.items;
+    }
+    findById(id) {
+        return this.items.find((item) => item.id === id);
+    }
+}
+const userRepository = new Repository();
+const productRepository = new Repository();
+userRepository.add({ id: 1, name: 'Kseniia' });
+productRepository.add({ id: '1', title: 'Phone', price: 1000 });
+console.log('Find all users');
+console.log('All users', userRepository.findAll());
+console.log('Find user by ID');
+console.log('User with id 1:', userRepository.findById(1));
+console.log('Find all products');
+console.log('All products:', productRepository.findAll());
+console.log('Find product by ID');
+console.log(`This is product with 1 ID` + productRepository.findById('1'));

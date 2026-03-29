@@ -49,7 +49,11 @@ userRepository.add({ id: 1, name: 'Kseniia' })
 productRepository.add({ id: '1', title: 'Phone', price: 1000 })
 
 console.log('Find all users')
-console.log('This is All user' + userRepository.findAll())
+console.log('All users', userRepository.findAll())
+console.log('Find user by ID')
+console.log('User with id 1:', userRepository.findById(1))
 
+console.log('Find all products')
+console.log('All products:', productRepository.findAll())
 console.log('Find product by ID')
-console.log(`This is product with ${1} ID` + productRepository.findById(1))
+console.log(`This is product with 1 ID`, productRepository.findById('1'))
