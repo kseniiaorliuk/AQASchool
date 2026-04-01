@@ -18,12 +18,18 @@ class Input extends UIComponent {
   }
 
   public getValue(): string {
+    console.log(`Retrieving value: ${this.currentValue}`)
     return this.currentValue
   }
 }
 
-const button = new Button('login-button')
+const button = new Button('login-button').click()
 const input = new Input('description-input')
 
+console.log('--- Button Action ---')
+button.click().click().click()
+
 input.setValue('This is my description').click()
+
+console.log('\n--- Verification ---')
 console.log('Current input value:', input.getValue())
