@@ -1,6 +1,7 @@
 class UIComponent {
   constructor(protected locator: string) {}
 
+  //public click(): void {
   public click(): this {
     console.log(`Clicked on component with locator: ${this.locator}`)
     return this
@@ -23,11 +24,11 @@ class Input extends UIComponent {
   }
 }
 
-const button = new Button('login-button').click()
+const button = new Button('login-button')
 const input = new Input('description-input')
 
 console.log('--- Button Action ---')
-button.click().click().click()
+button.click().click()
 
 input.setValue('This is my description').click()
 

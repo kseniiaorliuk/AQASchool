@@ -17,6 +17,7 @@ var UIComponent = /** @class */ (function () {
     function UIComponent(locator) {
         this.locator = locator;
     }
+    //public click(): void {
     UIComponent.prototype.click = function () {
         console.log("Clicked on component with locator: ".concat(this.locator));
         return this;
