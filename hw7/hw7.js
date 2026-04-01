@@ -17,6 +17,7 @@ var UIComponent = /** @class */ (function () {
     function UIComponent(locator) {
         this.locator = locator;
     }
+    //public click(): void {
     UIComponent.prototype.click = function () {
         console.log("Clicked on component with locator: ".concat(this.locator));
         return this;
@@ -43,11 +44,15 @@ var Input = /** @class */ (function (_super) {
         return this;
     };
     Input.prototype.getValue = function () {
+        console.log("Retrieving value: ".concat(this.currentValue));
         return this.currentValue;
     };
     return Input;
 }(UIComponent));
-var button = new Button('login-button');
+var button = new Button('login-button').click();
 var input = new Input('description-input');
+console.log('--- Button Action ---');
+button.click().click().click();
 input.setValue('This is my description').click();
+console.log('\n--- Verification ---');
 console.log('Current input value:', input.getValue());
