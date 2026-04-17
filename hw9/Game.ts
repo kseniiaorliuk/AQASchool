@@ -22,14 +22,16 @@ export class Game {
           this.player.addResource(planet.event.resource)
         } else if (planet.event.type === 'trader') {
           console.log('Hi trader!')
-        } else if (planet.event.type === null) {
+        } else if (planet.event === null) {
           console.log('Nothing happaned')
         }
+        planetId++
       } catch (error) {
-        console.log('Error')
+        console.log('Error:', (error as Error).message)
         break
       }
     }
+
     console.log('GAME OVER')
   }
 }

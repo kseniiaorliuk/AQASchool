@@ -20,12 +20,13 @@ var Game = /** @class */ (function () {
                 else if (planet.event.type === 'trader') {
                     console.log('Hi trader!');
                 }
-                else if ((planet.event = null)) {
+                else if (planet.event === null) {
                     console.log('Nothing happaned');
                 }
+                planetId++;
             }
             catch (error) {
-                console.log('Error');
+                console.log('Error:', error.message);
                 break;
             }
         }

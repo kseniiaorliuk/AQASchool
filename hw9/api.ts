@@ -1,11 +1,23 @@
-import { IPlanet } from './types'
+import { IPlanet, PlanetEvent } from './types'
 
-export function getPlanetData(id: number): IPlanet {
-  // Stub implementation
-  return {
-    id,
-    name: `Planet ${id}`,
-    distance: 10,
-    event: null,
+function generateEvent(): PlanetEvent {
+  const rand = Math.random()
+
+  if (rand < 0.3) {
+    return {
+      type: 'resource',
+      resource: {
+        name: 'Gold',
+        value: Math.floor(Math.random() * 100),
+      },
+    }
   }
+
+  if (rand < 0.7) {
+    return {
+      type: 'trader',
+    }
+  }
+
+  return null
 }
