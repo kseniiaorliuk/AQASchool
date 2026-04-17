@@ -1,6 +1,6 @@
 import { IPlayer, Resource } from './types'
 
-class Player implements IPlayer {
+export class Player implements IPlayer {
   name: string
   fuelLevel: number
   inventory: Resource[] = []
@@ -14,7 +14,7 @@ class Player implements IPlayer {
     if (distance > this.fuelLevel) {
       throw new Error('Not enough fuel!')
     }
-    this.fuelLevel - distance
+    this.fuelLevel -= distance
     console.log(
       `Player ${this.name} traveled ${distance}. Fuel left: ${this.fuelLevel}`,
     )

@@ -5,13 +5,13 @@ interface IPlanet {
   event: PlanetEvent
 }
 
-export interface IPlayer {
+interface IPlayer {
   name: string
   fuelLevel: number
   inventory: Resource[]
 }
 
-export type Resource = {
+type Resource = {
   name: string
   value: number
 }
