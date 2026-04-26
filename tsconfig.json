@@ -1,7 +1,21 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES6",
+//     "outDir": "dist"
+//   },
+//   "include": ["**/*.ts"]
+// }
 {
   "compilerOptions": {
-    "target": "ES6",
-    "outDir": "dist"
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist"
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
 }
