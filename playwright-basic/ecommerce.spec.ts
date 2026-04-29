@@ -1,0 +1,40 @@
+import { test, expect } from '@playwright/test'
+
+test('test', async ({ page }) => {
+  await page.goto('https://www.saucedemo.com')
+  await expect(page).toHaveURL('https://www.saucedemo.com')
+  await expect(page.getByText('Swag Labs')).toBeVisible()
+  //login
+  await page.getByPlaceholder('Username').fill('standard_user') // page.locator('[data-test="username"]').fill('standard_user')
+  await page.getByPlaceholder('Password').fill('secret_sauce')
+  await page.getByRole('button', { name: 'Login' }).click()
+  await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html')
+  await expect(page.getByText('Products')).toBeVisible()
+
+  //sort products
+  await page.getByText('Name (A to Z)Name (A to Z)').click()
+  await page
+    .locator('[data-test="product-sort-container"]')
+    .selectOption('hilo')
+
+  const firstItem = page.locator('.inventory_item').first()
+  await expect(firstItem).toContainText('Sauce Labs Fleece Jacket') // треба переробити і дійти до назви айтему та прайсу через "ланцюжок"
+  await expect(firstItem).toContainText('$49.99')
+
+  //add to cart
+  await page
+    .locator('.inventory_item')
+    .filter({ hasText: 'Sauce Labs Fleece Jacket' })
+    .getByRole('button', { name: 'Add to cart' })
+    .click()
+
+  await expect(
+    page
+      .locator('.inventory_item')
+      .filter({ hasText: 'Sauce Labs Fleece Jacket' })
+      .getByRole('button', { name: 'Remove' }),
+  ).toBeVisible()
+
+  const cartBadge = page.locator('.shopping_cart_badge')
+  await expect(cartBadge).toHaveText('1')
+})
